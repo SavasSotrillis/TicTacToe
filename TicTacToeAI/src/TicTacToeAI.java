@@ -5,6 +5,7 @@ public class TicTacToeAI
 	static String board[][];
 	static String players[];
 	static int turn, moves, r, c;
+	static int firstMoveR, firstMoveC;
 	public static void initialize()
 	{
 		board=new String[3][3];
@@ -81,24 +82,79 @@ public class TicTacToeAI
 	
 	public static void cpu()
 	{
+		int x=(int) (Math.random()*(3));
 		if(moves==0)
 		{
-			int x=(int) (Math.random()*(3));
+			
 			if(x==1)
 			{
 				board[0][0]="X";
+				return;
 			}
 			else if(x==2)
 			{
 				board[0][2]="X";
+				return;
 			}
 			else if(x==3)
 			{
 				board[2][0]="X";
+				return;
 			}
 			else
 			{
 				board[2][2]="X";
+				return;
+			}
+		}
+		else if(moves==1)
+		{
+			if(board[1][1]=="O")
+			{
+				if(x==1)
+				{
+					board[0][0]="X";
+					return;
+				}
+				else if(x==2)
+				{
+					board[0][2]="X";
+					return;
+				}
+				else if(x==3)
+				{
+					board[2][0]="X";
+					return;
+				}
+				else
+				{
+					board[2][2]="X";
+					return;
+				}
+			}
+			else
+			{
+				board[1][1]="X";
+				return;
+			}
+		}
+		else if(moves==3)
+		{
+			if(board[1][2]=="O")
+			{
+				
+			}
+			if(board[2][1]=="O")
+			{
+				
+			}
+			if(board[0][1]=="O")
+			{
+				
+			}
+			if(board[1][0]=="O")
+			{
+				
 			}
 		}
 		else
@@ -131,8 +187,8 @@ public class TicTacToeAI
 				}
 
 			}
-
 		}
+		
 	}
 	public static void main(String args[])
 	{
